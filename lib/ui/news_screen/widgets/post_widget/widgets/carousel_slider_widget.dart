@@ -12,10 +12,11 @@ class CarouselSliderWidget extends StatefulWidget {
 }
 
 class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
+  int currentIndex = 0;
+  CarouselController controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
-    int current = 0;
-
     final List postImages = [
       'https://kartinki.pibig.info/uploads/posts/2023-03/thumbs/1680197788_kartinki-pibig-info-p-kartinki-krasivie-raznie-neobichnie-so-smi-1.jpg',
       'https://foni.club/uploads/posts/2023-01/1672523264_foni-club-p-kartinki-na-telefon-kartini-4.jpg',
@@ -25,36 +26,36 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
     ];
     return Column(
       children: [
-        CarouselSlider.builder(
-          options: CarouselOptions(
+        CarouselSlider(
+            carouselController: controller,
+            options: CarouselOptions(
               height: 250,
               viewportFraction: 1.0,
               autoPlay: true,
               onPageChanged: (index, reason) {
-                print(index);
-                current = index;
+                currentIndex = index;
                 setState(() {});
-                print(current);
-              }),
-          itemCount: postImages.length,
-          itemBuilder: (BuildContext context, int index, int realIndex) {
-            return Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Image.network(
-                  postImages[index],
-                  fit: BoxFit.fill,
-                ),
-              ),
-            );
-          },
-        ),
+              },
+            ),
+            items: postImages
+                .map(
+                  (e) => Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Image.network(
+                        e,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                )
+                .toList()),
         DotsIndicator(
           dotsCount: postImages.length,
-          position: current,
+          position: currentIndex,
           onTap: (position) {
-            print(position);
-            current = position;
+            controller.animateToPage(position);
             setState(() {});
           },
         ),
