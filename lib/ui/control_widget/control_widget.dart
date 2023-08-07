@@ -18,7 +18,13 @@ class _ControlWidgetState extends State<ControlWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset('assets/logo/logo.png'),
+        leading: Container(
+          height: 10,
+          child: Image.asset(
+            'assets/logo/logo.png',
+            fit: BoxFit.fitHeight,
+          ),
+        ),
         title: const Text(
           'PEARS',
           style: TextStyle(fontWeight: FontWeight.w900),
