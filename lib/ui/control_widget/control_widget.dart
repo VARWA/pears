@@ -31,7 +31,11 @@ class _ControlWidgetState extends State<ControlWidget> {
                 Badge(
                   backgroundColor: Theme.of(context).primaryColor,
                   label: const Text('3'),
-                  child: const Icon(Icons.notifications_outlined),
+                  child: ImageIcon(
+                    const AssetImage(
+                        'assets/icons/notification/notification.png'),
+                    color: Theme.of(context).primaryColor,
+                  ),
                   // alignment: AlignmentDirectional.bottomEnd,
                   // offset: Offset(4, 1),
                 ),
@@ -39,7 +43,10 @@ class _ControlWidgetState extends State<ControlWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 10),
+            padding: const EdgeInsets.only(
+              left: 8.0,
+              right: 10,
+            ),
             child: PopupMenuButton(
               child: const Icon(Icons.menu),
               itemBuilder: (context) {
@@ -77,9 +84,11 @@ class _ControlWidgetState extends State<ControlWidget> {
         ],
         currentIndex: _selectedIndex,
         onTap: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          setState(
+            () {
+              _selectedIndex = index;
+            },
+          );
         },
       ),
     );

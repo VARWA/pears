@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 class SocialEventsWidget extends StatelessWidget {
@@ -13,18 +11,21 @@ class SocialEventsWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.thumb_up_alt_outlined),
+            ImageIcon(
+              const AssetImage('assets/icons/like/like.png'),
+              color: Theme.of(context).primaryColor,
+            ),
             Text('123'),
           ],
         ),
         SizedBox(width: 2),
         Row(
           children: [
-            Transform(
-              alignment: Alignment.center,
-              transform: Matrix4.rotationY(math.pi),
-              child: Icon(
-                Icons.mode_comment_outlined,
+            IconButton(
+              onPressed: () {},
+              icon: ImageIcon(
+                const AssetImage('assets/icons/comment/comment.png'),
+                color: Theme.of(context).primaryColor,
               ),
             ),
             Text('123'),
@@ -33,7 +34,10 @@ class SocialEventsWidget extends StatelessWidget {
         SizedBox(width: 2),
         Row(
           children: [
-            Icon(Icons.send_outlined),
+            ImageIcon(
+              const AssetImage('assets/icons/send/send.png'),
+              color: Theme.of(context).primaryColor,
+            ),
             Text('243'),
           ],
         ),

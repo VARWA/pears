@@ -12,24 +12,30 @@ class PostMetadataWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(
-              Icons.location_on_outlined,
+            ImageIcon(
+              const AssetImage('assets/icons/location/location.png'),
               color: Theme.of(context).primaryColor,
             ),
             const Text('Казань'),
           ],
         ),
         const SizedBox(width: 4),
-        const Row(
+        Row(
           children: [
-            Icon(Icons.calendar_today_outlined),
+            ImageIcon(
+              const AssetImage('assets/icons/calendar/calendar.png'),
+              color: Theme.of(context).primaryColor,
+            ),
             Text('16 фев 2023'),
           ],
         ),
         const SizedBox(width: 4),
-        const Row(
+        Row(
           children: [
-            Icon(Icons.access_alarm_outlined),
+            ImageIcon(
+              const AssetImage('assets/icons/clock/clock.png'),
+              color: Theme.of(context).primaryColor,
+            ),
             Text('19:00-22:00'),
           ],
         ),

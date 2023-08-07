@@ -13,7 +13,7 @@ class NewPostFromNewsWidget extends StatelessWidget {
       surfaceTintColor: Colors.white,
       child: Column(
         children: [
-           const Align(
+          const Align(
               alignment: AlignmentDirectional.topStart,
               child: Padding(
                 padding: EdgeInsets.only(
@@ -25,7 +25,8 @@ class NewPostFromNewsWidget extends StatelessWidget {
                     SizedBox(
                       height: 20,
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAsdThKP8w9qAG1vLbSlWcZFT17_XXHnPJ_kBLfaFo&s'),
+                        backgroundImage: NetworkImage(
+                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAsdThKP8w9qAG1vLbSlWcZFT17_XXHnPJ_kBLfaFo&s'),
                       ),
                     ),
                     Text('RSHB Identity Management Meetup'),
@@ -43,15 +44,21 @@ class NewPostFromNewsWidget extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.location_on),
+                      icon: const ImageIcon(
+                        AssetImage('assets/icons/document/document.png'),
+                      ),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.calendar_today_outlined),
+                      icon: const ImageIcon(
+                        AssetImage('assets/icons/location/location.png'),
+                      ),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.photo_library_outlined),
+                      icon: const ImageIcon(
+                        AssetImage('assets/icons/gallery/gallery.png'),
+                      ),
                     ),
                   ],
                 ),
